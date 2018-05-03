@@ -20,10 +20,6 @@ def get_file_content(filePath):
     with open(filePath, 'rb') as fp:
         return fp.read()
 
-#def print_tmp( tmp ):
-#	for i in tmp :
-#		print i
-
 def show_result( result ):
 	tmp = [] 
 	if isinstance(result, dict ):
@@ -41,14 +37,14 @@ def check_can_bottle( tmp ):
 		if class_2 in i :
 			return 1
 	return 0
-def chck_paper( tmp ):
+def check_paper( tmp ):
 	for i in tmp :
 		if class_3 in i :
 			return 1
 	return 0
 
 def recognize_picture( filePath ):
-	result = client.advancedGeneral(get_file_content( filePath )
+	result = client.advancedGeneral(get_file_content( filePath ) )
 	tmp = show_result( result ) 
 	if check_plastic_bottle( tmp ) == 1 :
 		return 0
@@ -56,19 +52,7 @@ def recognize_picture( filePath ):
 		return 1
 	if check_paper( tmp ) == 1 :
 		return 2
-	else
+	else :
 		return 3
 
-
-
-# result = client.advancedGeneral(get_file_content( filePath ))
-
-# for i in range(8):
-# 	if i == 0:
-# 		continue
-# 	result = client.advancedGeneral(get_file_content( '2%d.jpg' % i ))
-# 	show_result() 
-# 	print '===\n'
-
-# 	time.sleep(3)
-
+# print recognize_picture('image/1.jpg')
